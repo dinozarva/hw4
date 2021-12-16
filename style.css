@@ -1,0 +1,210 @@
+/*  дополнительный код CSS пишем тут */
+/**
+ * From Mobile (320px) to Tablet Portrait (768px)
+
+ * 1 block -> all elements width: 50%
+ * 2 block -> all elements width: 50%
+ * 3 block -> 1 element in a row, full width 100% for all
+ * 4 block -> 1 element in a row, full width 100% for all
+ * 5 block -> all elements in 100% width
+*/
+@media screen and (min-width:320px) and (max-width: 768px) {
+    .first,
+    .second,
+    .third,
+    .fourth{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .first .colored,
+    .second .colored{
+        width: 50%;
+    }
+    .third .colored,
+    .fourth .colored{
+        width:100%
+    }
+    .fifth{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
+    
+  /**
+  * From Tablet Portrait (768px) to Tablet Landscape (960px)
+  
+    * 1 block -> all elements width: 50%
+    * 2 block -> all elements width: 50%
+    * 3 block -> 1 element in a row, full width
+    * 4 block -> 1 and second: 50% and last element 100% width
+    * 5 block -> 2 elements in a row, 50% width, last one is 100% width
+  */
+ @media  screen and (min-width:768px) and (max-width: 960px) {
+     .first,
+     .second,
+     .third{
+         display: flex;
+         flex-wrap: wrap;
+     }
+     .first .colored,
+    .second .colored{
+        width: 50%;
+    }
+    .third .colored{
+        width: 100%;
+    }
+    .fourth,
+    .fifth{
+        display: flex;
+       flex-wrap: wrap;
+        
+    }
+    .fourth .colored,
+    .fifth .colored{
+        width: 50%;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    .fourth .colored:last-child,
+    .fifth .colored:last-child{
+        
+        flex-grow: 1;
+    }
+    
+ }
+
+  
+  /**
+   * From Tablet Landscape (960px) to medium desktop (1200px)
+  
+   * 1 block -> 2 elements in a row: all equal width, so it will have 2 rows width: 50%
+   * 2 block -> 2 elements in a row: all equal width
+   * 3 block -> 3 elements in a row: all equal width
+   * 4 block -> 3 elements in a row: 1 -> 35%, 2 -> 30% and 3 ->35%
+   * 5 block -> 2 elements in a row, all equal width, the last one should be 100% width
+  */
+  @media  screen and (min-width:960px) and (max-width: 1200px){
+      .first{
+          display: flex;
+          flex-wrap: wrap;
+      }
+      .first .colored{
+          width: 50%;
+      }
+      .second,
+      .third,
+      .fourth{
+          display: flex;
+      }
+      .fourth .colored{
+        flex-basis: 35%;
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+     
+      .fourth .colored:nth-child(2){
+         flex-shrink: 1;
+      }
+      .fifth{
+          display: flex;
+          flex-wrap: wrap;
+      }
+      .fifth .colored{
+          flex-grow: 1;
+          flex-basis: 40%;
+      }
+  }
+  
+  /**
+   * From medium desktop (1200px) to large desktop (1800px)
+  
+   * 1 block -> 2 elements in a row: all equal width, so it will have 2 rows width: 50%
+   * 2 block -> 2 elements in a row: all equal width
+   * 3 block -> 3 elements: 1 -> 50%, 2 -> 50% and last 100%
+   * 4 block -> 3 elements in a row: 1 -> 35%, 2 -> 30% and 3 ->35%
+   * 5 block -> 3 or 2 elements in a row, all 33% width, centered in center of parent block
+  */
+  @media  screen and (min-width:1200px) and (max-width: 1800px){
+      .first,
+      .third{
+          display: flex;
+          flex-wrap: wrap;
+      }
+      .first .colored{
+          flex-basis: 50%;
+      }
+      .second{
+          display: flex;
+      }
+      .third .colored{
+          flex-basis: 50%;
+          flex-grow: 1;
+      }
+      .fourth{
+          display: flex;
+      }
+      .fourth .colored{
+          flex-basis: 35%;
+          flex-grow: 0;
+          flex-shrink: 0;
+      }
+      .fourth .colored:nth-child(2){
+          flex-shrink: 1;
+      }
+      .fifth{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+      .fifth .colored{
+          flex-basis: 33%;
+      }
+  }
+  
+
+  /**
+   * From large Desktop (1800px)
+  
+   * 1 block -> 4 elements in a row: all equal width
+   * 2 block -> 2 elements in a row: all equal width
+   * 3 block -> 3 elements in a row: all 25% width
+   * 4 block -> 3 elements in a row: 1 -> 25%, 2 -> 25% and 3 ->50%
+   * 5 block -> 5 elements in a row: all equal width
+  */
+  @media  screen and (min-width: 1800px) {
+      .first,
+      .second,
+      .third,
+      .fifth{
+          display: flex;
+      }
+      .first .colored,
+      .second .colored,
+      .fifth .colored{
+          flex-basis: 0;
+          flex-grow: 1;
+      }
+      .third .colored{
+          flex-grow: 0;
+          flex-shrink: 0;
+          flex-basis: 25%;
+      }
+      .fourth{
+          display: flex;
+      }
+      .fourth .colored{
+          flex-basis: 25%;
+          flex-grow: 0;
+          flex-shrink: 0;
+      }
+      .fourth .colored:last-child{
+          flex-grow: 1;
+      }
+
+
+  }
+  
+    
+    
+      
+    
